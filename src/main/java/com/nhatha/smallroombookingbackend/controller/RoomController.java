@@ -3,6 +3,7 @@ package com.nhatha.smallroombookingbackend.controller;
 import com.nhatha.smallroombookingbackend.error.RoomNotFoundException;
 import com.nhatha.smallroombookingbackend.persistance.model.Room;
 import com.nhatha.smallroombookingbackend.persistance.repository.RoomRepository;
+import com.nhatha.smallroombookingbackend.persistance.specification.RoomSpecifications;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,8 +28,8 @@ public class RoomController {
 
 
   @GetMapping("/name/{name}")
-  public List<Room> findByName(@PathVariable String name) {
-    return roomRepository.findByName(name);
+  public List<Room> findByNameLike(@PathVariable String name) {
+    return roomRepository.findAll(RoomSpecifications.hasNameLike(name));
   }
 
   @GetMapping("/{id}")
