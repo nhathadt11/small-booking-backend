@@ -7,8 +7,4 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import java.util.List;
 
 public interface AdminRepository extends JpaRepository<Admin, Integer>, JpaSpecificationExecutor<Admin> {
-  List<Admin> findByFirstName(String name);
-  List<Admin> findByLastName(String name);
-  List<Admin> findByPhone(String phone);
-  List<Admin> findByEmail(String email);
 }
