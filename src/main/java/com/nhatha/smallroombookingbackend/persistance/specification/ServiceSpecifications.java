@@ -4,7 +4,7 @@ import com.nhatha.smallroombookingbackend.persistance.model.Service;
 import com.nhatha.smallroombookingbackend.persistance.model.Service_;
 import org.springframework.data.jpa.domain.Specification;
 
-public class ServiceSpecifications {
+public final class ServiceSpecifications {
   public static Specification<Service> hasNameLike(String name) {
     return (root, query, cb) -> cb.like(root.get(Service_.name), "%" + name + "%");
   }
