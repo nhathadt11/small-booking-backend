@@ -11,5 +11,5 @@ public abstract class Admin_ {
   public static volatile SingularAttribute<Admin, String> phone;
   public static volatile SingularAttribute<Admin, String> email;
   public static volatile SingularAttribute<Admin, String> address;
-  public static volatile SingularAttribute<Admin, Boolean> isActive;
+  public static volatile SingularAttribute<Admin, Boolean> active;
 }

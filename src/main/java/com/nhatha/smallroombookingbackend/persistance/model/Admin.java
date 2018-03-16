@@ -9,10 +9,10 @@ public class Admin {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
 
-  @Column
+  @Column(name = "first_name")
   private String firstName;
 
-  @Column
+  @Column(name = "last_name")
   private String lastName;
 
   @Column
@@ -25,7 +25,7 @@ public class Admin {
   private String address;
 
   @Column
-  private boolean isActive;
+  private boolean active;
 
   public int getId() {
     return id;
@@ -76,10 +76,10 @@ public class Admin {
   }
 
   public boolean isActive() {
-    return isActive;
+    return active;
   }
 
   public void setActive(boolean active) {
-    isActive = active;
+    active = active;
   }
 }

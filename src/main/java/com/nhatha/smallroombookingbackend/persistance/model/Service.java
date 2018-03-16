@@ -18,8 +18,8 @@ public class Service {
   @Column
   private float price;
 
-  @Column
-  private Date createdBy;
+  @Column(name = "admin_id")
+  private Date adminId;
 
   public int getId() {
     return id;
@@ -53,11 +53,11 @@ public class Service {
     this.price = price;
   }
 
-  public Date getCreatedBy() {
-    return createdBy;
+  public Date getAdminId() {
+    return adminId;
   }
 
-  public void setCreatedBy(Date createdBy) {
-    this.createdBy = createdBy;
+  public void setAdminId(Date adminId) {
+    this.adminId = adminId;
   }
 }

@@ -23,10 +23,10 @@ public class Room {
   private float price;
 
   @Column
-  private boolean isAvailable;
+  private boolean available;
 
-  @Column
-  private int createdBy;
+  @Column(name = "admin_id")
+  private int adminId;
 
   public int getId() {
     return id;
@@ -69,18 +69,18 @@ public class Room {
   }
 
   public boolean isAvailable() {
-    return isAvailable;
+    return available;
   }
 
   public void setAvailable(boolean available) {
-    isAvailable = available;
+    available = available;
   }
 
-  public int getCreatedBy() {
-    return createdBy;
+  public int getAdminId() {
+    return adminId;
   }
 
-  public void setCreatedBy(int createdBy) {
-    this.createdBy = createdBy;
+  public void setAdminId(int adminId) {
+    this.adminId = adminId;
   }
 }
