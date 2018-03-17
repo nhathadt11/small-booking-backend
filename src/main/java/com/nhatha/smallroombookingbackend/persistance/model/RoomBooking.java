@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "room_booking")
 public class RoomBooking {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

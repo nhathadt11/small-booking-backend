@@ -10,5 +10,5 @@ public abstract class Service_ {
   public static volatile SingularAttribute<Service, String> name;
   public static volatile SingularAttribute<Service, String> description;
   public static volatile SingularAttribute<Service, Float> price;
-  public static volatile SingularAttribute<Service, Date> adminId;
+  public static volatile SingularAttribute<Service, Integer> adminId;
 }

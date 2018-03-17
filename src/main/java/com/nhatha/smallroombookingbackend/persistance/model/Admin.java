@@ -3,6 +3,7 @@ package com.nhatha.smallroombookingbackend.persistance.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "admin")
 public class Admin {
 
   @Id

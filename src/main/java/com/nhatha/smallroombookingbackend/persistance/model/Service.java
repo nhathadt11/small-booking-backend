@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "service")
 public class Service {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +20,7 @@ public class Service {
   private float price;
 
   @Column(name = "admin_id")
-  private Date adminId;
+  private int adminId;
 
   public int getId() {
     return id;
@@ -53,11 +54,11 @@ public class Service {
     this.price = price;
   }
 
-  public Date getAdminId() {
+  public int getAdminId() {
     return adminId;
   }
 
-  public void setAdminId(Date adminId) {
+  public void setAdminId(int adminId) {
     this.adminId = adminId;
   }
 }
