@@ -26,7 +26,7 @@ public class Room {
   @Column
   private boolean available;
 
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room_booking")
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room")
   private Set<RoomBooking> roomBookings;
 
   public int getId() {
