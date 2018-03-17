@@ -6,7 +6,7 @@ import java.util.Date;
 @Entity
 public class RoomBooking {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
   @Column(name = "cus_full_name")
