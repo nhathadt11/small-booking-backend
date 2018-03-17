@@ -25,7 +25,7 @@ public class RoomBooking {
   @Column(name = "end_at")
   private Date endAt;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "room_id", nullable = false)
   private Room room;
 
