@@ -1,6 +1,5 @@
 package com.nhatha.smallroombookingbackend.controller;
 
-import com.nhatha.smallroombookingbackend.error.ServiceBookingNotFoundException;
 import com.nhatha.smallroombookingbackend.persistance.model.ServiceBooking;
 import com.nhatha.smallroombookingbackend.persistance.repository.ServiceBookingRepository;
 import com.nhatha.smallroombookingbackend.persistance.specification.ServiceBookingSpecifications;
@@ -21,11 +20,10 @@ public class ServiceBookingController {
   }
 
   @GetMapping("/admin/{id}")
-  public ServiceBooking findByAdminId(@PathVariable int id) {
+  public List<ServiceBooking> findByAdminId(@PathVariable int id) {
     return
         serviceBookingRepository
-            .findOne(ServiceBookingSpecifications.wasBookedByAdminId(id))
-            .orElseThrow(ServiceBookingNotFoundException::new);
+            .findAll(ServiceBookingSpecifications.wasBookedByAdminId(id));
   }
 
   @GetMapping("/from-to")

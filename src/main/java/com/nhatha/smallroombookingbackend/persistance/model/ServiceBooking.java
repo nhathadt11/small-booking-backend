@@ -33,6 +33,9 @@ public class ServiceBooking {
   @JoinColumn(name = "admin_id", nullable = false)
   private Admin admin;
 
+  @Column(name = "admin_id", insertable = false, updatable = false)
+  private int adminId;
+
   public int getId() {
     return id;
   }
@@ -82,5 +85,14 @@ public class ServiceBooking {
 
   public void setAdmin(Admin admin) {
     this.admin = admin;
+  }
+
+  @JsonIgnore
+  public int getAdminId() {
+    return this.adminId;
+  }
+
+  public void setAdminId(int adminId) {
+    this.adminId = adminId;
   }
 }

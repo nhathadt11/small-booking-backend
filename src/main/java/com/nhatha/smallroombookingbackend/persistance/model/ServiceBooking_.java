@@ -10,5 +10,6 @@ public abstract class ServiceBooking_ {
   public static SingularAttribute<ServiceBooking, Date> endAt;
   public static SingularAttribute<ServiceBooking, Integer> serviceId;
   public static SingularAttribute<ServiceBooking, Integer> roomBookingId;
+  public static SingularAttribute<ServiceBooking, Admin> admin;
   public static SingularAttribute<ServiceBooking, Integer> adminId;
 }
