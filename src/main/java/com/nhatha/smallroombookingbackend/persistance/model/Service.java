@@ -2,6 +2,7 @@ package com.nhatha.smallroombookingbackend.persistance.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "service")
@@ -21,6 +22,9 @@ public class Service {
 
   @Column(name = "admin_id")
   private int adminId;
+
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "service")
+  private Set<ServiceBooking> serviceBookings;
 
   public int getId() {
     return id;
@@ -60,5 +64,13 @@ public class Service {
 
   public void setAdminId(int adminId) {
     this.adminId = adminId;
+  }
+
+  public Set<ServiceBooking> getServiceBookings() {
+    return serviceBookings;
+  }
+
+  public void setServiceBookings(Set<ServiceBooking> serviceBookings) {
+    this.serviceBookings = serviceBookings;
   }
 }

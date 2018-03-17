@@ -1,8 +1,10 @@
 package com.nhatha.smallroombookingbackend.persistance.model;
 
 import javax.persistence.metamodel.SingularAttribute;
+import javax.persistence.metamodel.StaticMetamodel;
 import java.util.Date;
 
+@StaticMetamodel(RoomBooking.class)
 public abstract class RoomBooking_ {
   public static SingularAttribute<RoomBooking, Integer> id;
   public static SingularAttribute<RoomBooking, String> cusFullName;

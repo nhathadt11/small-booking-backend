@@ -1,9 +1,13 @@
 package com.nhatha.smallroombookingbackend.persistance.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "admin")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Admin {
 
   @Id
@@ -27,6 +31,9 @@ public class Admin {
 
   @Column
   private boolean active;
+
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "admin")
+  private Set<ServiceBooking> serviceBookings;
 
   public int getId() {
     return id;
@@ -81,6 +88,14 @@ public class Admin {
   }
 
   public void setActive(boolean active) {
-    active = active;
+    this.active = active;
+  }
+
+  public Set<ServiceBooking> getServiceBookings() {
+    return serviceBookings;
+  }
+
+  public void setServiceBookings(Set<ServiceBooking> serviceBookings) {
+    this.serviceBookings = serviceBookings;
   }
 }

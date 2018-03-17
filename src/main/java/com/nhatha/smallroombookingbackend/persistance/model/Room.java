@@ -75,7 +75,7 @@ public class Room {
   }
 
   public void setAvailable(boolean available) {
-    available = available;
+    this.available = available;
   }
 
   public Set<RoomBooking> getRoomBookings() {
