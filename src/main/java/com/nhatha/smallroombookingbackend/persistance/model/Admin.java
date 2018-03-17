@@ -1,5 +1,6 @@
 package com.nhatha.smallroombookingbackend.persistance.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -34,6 +35,15 @@ public class Admin {
 
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "admin")
   private Set<ServiceBooking> serviceBookings;
+
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "admin")
+  private Set<RoomBooking> roomBookings;
+
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "admin")
+  private Set<Service> services;
+
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "admin")
+  private Set<Room> rooms;
 
   public int getId() {
     return id;
@@ -91,11 +101,39 @@ public class Admin {
     this.active = active;
   }
 
+  @JsonIgnore
   public Set<ServiceBooking> getServiceBookings() {
     return serviceBookings;
   }
 
   public void setServiceBookings(Set<ServiceBooking> serviceBookings) {
     this.serviceBookings = serviceBookings;
+  }
+
+  @JsonIgnore
+  public Set<RoomBooking> getRoomBookings() {
+    return roomBookings;
+  }
+
+  public void setRoomBookings(Set<RoomBooking> roomBookings) {
+    this.roomBookings = roomBookings;
+  }
+
+  @JsonIgnore
+  public Set<Service> getServices() {
+    return services;
+  }
+
+  public void setServices(Set<Service> services) {
+    this.services = services;
+  }
+
+  @JsonIgnore
+  public Set<Room> getRooms() {
+    return rooms;
+  }
+
+  public void setRooms(Set<Room> rooms) {
+    this.rooms = rooms;
   }
 }

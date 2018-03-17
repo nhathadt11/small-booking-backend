@@ -35,6 +35,9 @@ public class RoomBooking {
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "roomBooking")
   private Set<ServiceBooking> serviceBookings;
 
+  @ManyToOne(fetch = FetchType.EAGER)
+  private Admin admin;
+
   public int getId() {
     return id;
   }
@@ -92,11 +95,21 @@ public class RoomBooking {
     this.room = room;
   }
 
+  @JsonIgnore
   public Set<ServiceBooking> getServiceBookings() {
     return serviceBookings;
   }
 
   public void setServiceBookings(Set<ServiceBooking> serviceBookings) {
     this.serviceBookings = serviceBookings;
+  }
+
+  @JsonIgnore
+  public Admin getAdmin() {
+    return admin;
+  }
+
+  public void setAdmin(Admin admin) {
+    this.admin = admin;
   }
 }

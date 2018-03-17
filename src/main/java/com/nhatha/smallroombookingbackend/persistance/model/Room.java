@@ -1,5 +1,7 @@
 package com.nhatha.smallroombookingbackend.persistance.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -29,6 +31,9 @@ public class Room {
 
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room")
   private Set<RoomBooking> roomBookings;
+
+  @ManyToOne(fetch = FetchType.EAGER)
+  private Admin admin;
 
   public int getId() {
     return id;
@@ -78,11 +83,21 @@ public class Room {
     this.available = available;
   }
 
+  @JsonIgnore
   public Set<RoomBooking> getRoomBookings() {
     return roomBookings;
   }
 
   public void setRoomBookings(Set<RoomBooking> roomBookings) {
     this.roomBookings = roomBookings;
+  }
+
+  @JsonIgnore
+  public Admin getAdmin() {
+    return admin;
+  }
+
+  public void setAdmin(Admin admin) {
+    this.admin = admin;
   }
 }
