@@ -1,6 +1,7 @@
 package com.nhatha.smallroombookingbackend.persistance.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -25,8 +26,8 @@ public class Room {
   @Column
   private boolean available;
 
-  @Column(name = "admin_id")
-  private int adminId;
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room_booking")
+  private Set<RoomBooking> roomBookings;
 
   public int getId() {
     return id;
@@ -76,11 +77,11 @@ public class Room {
     available = available;
   }
 
-  public int getAdminId() {
-    return adminId;
+  public Set<RoomBooking> getRoomBookings() {
+    return roomBookings;
   }
 
-  public void setAdminId(int adminId) {
-    this.adminId = adminId;
+  public void setRoomBookings(Set<RoomBooking> roomBookings) {
+    this.roomBookings = roomBookings;
   }
 }
