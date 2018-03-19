@@ -6,11 +6,11 @@ import java.util.Date;
 
 @StaticMetamodel(RoomBooking.class)
 public abstract class RoomBooking_ {
-  public static SingularAttribute<RoomBooking, Integer> id;
-  public static SingularAttribute<RoomBooking, String> cusFullName;
-  public static SingularAttribute<RoomBooking, String> cusPhone;
-  public static SingularAttribute<RoomBooking, String> cusIdentityNo;
-  public static SingularAttribute<RoomBooking, Date> startAt;
-  public static SingularAttribute<RoomBooking, Date> endAt;
-  public static SingularAttribute<RoomBooking, Room> room;
+  public static volatile SingularAttribute<RoomBooking, Integer> id;
+  public static volatile SingularAttribute<RoomBooking, String> cusFullName;
+  public static volatile SingularAttribute<RoomBooking, String> cusPhone;
+  public static volatile SingularAttribute<RoomBooking, String> cusIdentityNo;
+  public static volatile SingularAttribute<RoomBooking, Date> startAt;
+  public static volatile SingularAttribute<RoomBooking, Date> endAt;
+  public static volatile SingularAttribute<RoomBooking, Room> room;
 }
