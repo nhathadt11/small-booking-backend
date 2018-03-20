@@ -10,6 +10,7 @@ public abstract class Admin_ {
   public static volatile SingularAttribute<Admin, String> lastName;
   public static volatile SingularAttribute<Admin, String> phone;
   public static volatile SingularAttribute<Admin, String> email;
+  public static volatile SingularAttribute<Admin, String> password;
   public static volatile SingularAttribute<Admin, String> address;
   public static volatile SingularAttribute<Admin, Boolean> active;
 }

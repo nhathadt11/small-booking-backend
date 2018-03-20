@@ -31,6 +31,9 @@ public class Admin {
   private String address;
 
   @Column
+  private String password;
+
+  @Column
   private boolean active;
 
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "admin")
@@ -91,6 +94,14 @@ public class Admin {
 
   public void setAddress(String address) {
     this.address = address;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
   public boolean isActive() {
