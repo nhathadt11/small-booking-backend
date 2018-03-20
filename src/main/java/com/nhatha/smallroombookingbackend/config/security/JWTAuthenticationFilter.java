@@ -59,6 +59,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         .signWith(SignatureAlgorithm.HS512, SECRET.getBytes())
         .compact();
 
+    response.setHeader("Content-type", "application/json;charset=UTF-8");
     response
         .getWriter()
         .write(
