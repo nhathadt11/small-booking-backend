@@ -21,6 +21,17 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
   private UserDetailsService userDetailsService;
   private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+  @Override
+  public void configure(org.springframework.security.config.annotation.web.builders.WebSecurity web) throws Exception {
+    web.ignoring().antMatchers(
+        "/v2/api-docs",
+        "/swagger-resources/**",
+        "/configuration/**",
+        "/swagger-ui.html",
+        "/webjars/**"
+    );
+  }
+
   public WebSecurity(UserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
     this.userDetailsService = userDetailsService;
     this.bCryptPasswordEncoder = bCryptPasswordEncoder;
@@ -30,8 +41,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http.cors().and().csrf().disable().authorizeRequests()
         .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
-        .antMatchers(HttpMethod.GET,"/swagger-ui.html").permitAll()
-        .antMatchers(HttpMethod.GET,"/webjars/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .addFilter(new JWTAuthenticationFilter(authenticationManager()))
