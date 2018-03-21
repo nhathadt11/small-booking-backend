@@ -10,4 +10,5 @@ import java.util.List;
 public interface RoomRepository extends JpaRepository<Room, Integer>, JpaSpecificationExecutor<Room> {
   List<Room> findByName(String name);
   List<Room> findAll(Specification<Room> specification);
+  List<Room> findRoomByAvailable(boolean available);
 }

@@ -39,6 +39,11 @@ public class RoomController {
         .orElseThrow(RoomNotFoundException::new);
   }
 
+  @GetMapping("/available")
+  public List<Room> findAllAvailable() {
+    return roomRepository.findRoomByAvailable(true);
+  }
+
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public Room create(@RequestBody Room room) {
