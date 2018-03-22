@@ -1,6 +1,7 @@
 package com.nhatha.smallroombookingbackend.persistance.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.nhatha.smallroombookingbackend.viewmodal.RoomBookingViewModal;
 
 import javax.persistence.*;
 import java.util.Set;

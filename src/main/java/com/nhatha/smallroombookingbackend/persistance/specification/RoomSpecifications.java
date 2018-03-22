@@ -8,4 +8,10 @@ public final class RoomSpecifications {
   public static Specification<Room> hasNameLike(String name) {
     return (root, query, cb) -> cb.like(root.get(Room_.name), "%" + name + "%");
   }
+  public static Specification<Room> isAvailable(int id) {
+    return (root, query, cb) -> cb.and(
+        cb.equal(root.get(Room_.id), id),
+        cb.equal(root.get(Room_.available), true)
+    );
+  }
 }

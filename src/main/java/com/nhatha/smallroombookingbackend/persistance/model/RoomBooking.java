@@ -38,6 +38,32 @@ public class RoomBooking {
   @ManyToOne(fetch = FetchType.EAGER)
   private Admin admin;
 
+  @Column(name = "admin_id", insertable = false, updatable = false)
+  private int adminId;
+
+  @Column(name = "room_id", insertable = false, updatable = false)
+  private int roomId;
+
+  public RoomBooking() {
+  }
+
+  public RoomBooking(String cusFullName,
+                     String cusPhone,
+                     String cusIdentityNo,
+                     Date startAt,
+                     Date endAt,
+                     Admin admin,
+                     Room room)
+  {
+    this.cusFullName = cusFullName;
+    this.cusPhone = cusPhone;
+    this.cusIdentityNo = cusIdentityNo;
+    this.startAt = startAt;
+    this.endAt = endAt;
+    this.admin = admin;
+    this.room = room;
+  }
+
   public int getId() {
     return id;
   }
@@ -111,5 +137,21 @@ public class RoomBooking {
 
   public void setAdmin(Admin admin) {
     this.admin = admin;
+  }
+
+  public int getAdminId() {
+    return adminId;
+  }
+
+  public void setAdminId(int adminId) {
+    this.adminId = adminId;
+  }
+
+  public int getRoomId() {
+    return roomId;
+  }
+
+  public void setRoomId(int roomId) {
+    this.roomId = roomId;
   }
 }
