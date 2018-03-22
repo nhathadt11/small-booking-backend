@@ -55,7 +55,7 @@ public class RoomBookingController {
   }
 
   @PostMapping()
-  public RoomBookingViewModal update(@RequestBody RoomBooking roomBooking) throws RoomCannotBeBookedException {
+  public RoomBookingViewModal create(@RequestBody RoomBooking roomBooking) throws RoomCannotBeBookedException {
     Admin admin = webContextHelper.currentUser();
     Room room = roomToBeBooked(roomBooking.getRoomId());
 
