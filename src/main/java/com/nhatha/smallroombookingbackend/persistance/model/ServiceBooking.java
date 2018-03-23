@@ -2,6 +2,7 @@ package com.nhatha.smallroombookingbackend.persistance.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -35,6 +36,23 @@ public class ServiceBooking {
 
   @Column(name = "admin_id", insertable = false, updatable = false)
   private int adminId;
+
+  @Column(name = "room_booking_id", insertable = false, updatable = false)
+  private int roomBookingId;
+
+  @Column(name = "service_id", insertable = false, updatable = false)
+  private int serviceId;
+
+  public ServiceBooking() {
+  }
+
+  public ServiceBooking(Date startAt, Date endAt, Service service, RoomBooking roomBooking, Admin admin) {
+    this.startAt = startAt;
+    this.endAt = endAt;
+    this.service = service;
+    this.roomBooking = roomBooking;
+    this.admin = admin;
+  }
 
   public int getId() {
     return id;
@@ -87,12 +105,27 @@ public class ServiceBooking {
     this.admin = admin;
   }
 
-  @JsonIgnore
   public int getAdminId() {
     return this.adminId;
   }
 
   public void setAdminId(int adminId) {
     this.adminId = adminId;
+  }
+
+  public int getRoomBookingId() {
+    return roomBookingId;
+  }
+
+  public void setRoomBookingId(int roomBookingId) {
+    this.roomBookingId = roomBookingId;
+  }
+
+  public int getServiceId() {
+    return serviceId;
+  }
+
+  public void setServiceId(int serviceId) {
+    this.serviceId = serviceId;
   }
 }
