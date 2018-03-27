@@ -3,7 +3,7 @@ package com.nhatha.smallroombookingbackend.controller;
 import com.nhatha.smallroombookingbackend.error.RoomBookingNotFoundException;
 import com.nhatha.smallroombookingbackend.error.RoomCannotBeBookedException;
 import com.nhatha.smallroombookingbackend.error.RoomNotFoundOrNotAvailableException;
-import com.nhatha.smallroombookingbackend.error.UnuniqueRoomFoundException;
+import com.nhatha.smallroombookingbackend.error.NotUniqueRoomFoundException;
 import com.nhatha.smallroombookingbackend.persistance.model.Admin;
 import com.nhatha.smallroombookingbackend.persistance.model.Room;
 import com.nhatha.smallroombookingbackend.persistance.model.RoomBooking;
@@ -90,7 +90,7 @@ public class RoomBookingController {
   private Room roomToBeBooked(int id) {
     List<Room> rooms = roomRepository.findAll(RoomSpecifications.isAvailable(id));
 
-    if (rooms.size() > 1) throw new UnuniqueRoomFoundException();
+    if (rooms.size() > 1) throw new NotUniqueRoomFoundException();
     if (rooms.size() < 1) throw new RoomNotFoundOrNotAvailableException();
 
     return rooms.get(0);
