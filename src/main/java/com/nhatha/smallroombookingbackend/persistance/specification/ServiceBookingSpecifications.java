@@ -14,4 +14,8 @@ public final class ServiceBookingSpecifications {
   public static Specification<ServiceBooking> wasBookedBetween(Date from, Date to) {
     return (root, query, cb) -> cb.between(root.get(ServiceBooking_.startAt), from, to);
   }
+
+  public static Specification<ServiceBooking> hasRoomBookingId(int id) {
+    return (root, query, cb) -> cb.equal(root.get(ServiceBooking_.roomBookingId), id);
+  }
 }
