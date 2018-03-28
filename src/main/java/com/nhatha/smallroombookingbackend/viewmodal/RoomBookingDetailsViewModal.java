@@ -11,8 +11,8 @@ public class RoomBookingDetailsViewModal {
   private String cusIdentityNo;
   private String cusPhone;
   private List<ServiceBookingDetails> services;
-  private double serviceOverall;
-  private double roomOverall;
+  private float serviceOverall;
+  private float roomOverall;
 
   public RoomBookingDetailsViewModal(int id,
                                      int roomId,
@@ -22,8 +22,8 @@ public class RoomBookingDetailsViewModal {
                                      String cusIdentityNo,
                                      String cusPhone,
                                      List<ServiceBookingDetails> services,
-                                     double serviceOverall,
-                                     double roomOverall)
+                                     float serviceOverall,
+                                     float roomOverall)
   {
     this.id = id;
     this.roomId = roomId;
@@ -101,19 +101,19 @@ public class RoomBookingDetailsViewModal {
     this.services = services;
   }
 
-  public double getServiceOverall() {
+  public float getServiceOverall() {
     return serviceOverall;
   }
 
-  public void setServiceOverall(double serviceOverall) {
+  public void setServiceOverall(float serviceOverall) {
     this.serviceOverall = serviceOverall;
   }
 
-  public double getRoomOverall() {
+  public float getRoomOverall() {
     return roomOverall;
   }
 
-  public void setRoomOverall(double roomOverall) {
+  public void setRoomOverall(float roomOverall) {
     this.roomOverall = roomOverall;
   }
 }

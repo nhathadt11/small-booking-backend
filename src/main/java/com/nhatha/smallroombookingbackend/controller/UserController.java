@@ -36,8 +36,8 @@ public class UserController {
      List<ServiceBooking> serviceBookings  = serviceBookingListByBookingId(roomBooking.getId());
      List<ServiceBookingDetails> services  = fromServiceBookingList(serviceBookings);
 
-     double serviceOverall  = calculateServiceBookingOverall(serviceBookings);
-     double roomOverall     = calculateRoomBookingOverall(roomBooking, serviceOverall);
+     float serviceOverall  = calculateServiceBookingOverall(serviceBookings);
+     float roomOverall     = calculateRoomBookingOverall(roomBooking, serviceOverall);
 
      return new RoomBookingDetailsViewModal(
          roomBooking.getId(),
@@ -71,18 +71,18 @@ public class UserController {
         .collect(Collectors.toList());
   }
 
-  private double calculateServiceBookingOverall(List<ServiceBooking> serviceBookings) {
+  private float calculateServiceBookingOverall(List<ServiceBooking> serviceBookings) {
     return serviceBookings
         .stream()
-        .mapToDouble(serviceBooking -> serviceBooking.getService().getPrice())
-        .sum();
+        .map(sb -> sb.getService().getPrice())
+        .reduce(0f, (acc, price) -> acc + price);
   }
 
-  private double calculateRoomBookingOverall(RoomBooking roomBooking, List<ServiceBooking> serviceBookings) {
+  private float calculateRoomBookingOverall(RoomBooking roomBooking, List<ServiceBooking> serviceBookings) {
     return roomBooking.getRoom().getPrice() + calculateServiceBookingOverall(serviceBookings);
   }
 
-  private double calculateRoomBookingOverall(RoomBooking roomBooking, double serviceOverall) {
+  private float calculateRoomBookingOverall(RoomBooking roomBooking, float serviceOverall) {
     return roomBooking.getRoom().getPrice() + serviceOverall;
   }
 }
