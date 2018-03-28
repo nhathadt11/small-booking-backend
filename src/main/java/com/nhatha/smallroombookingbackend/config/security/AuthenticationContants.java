@@ -9,4 +9,5 @@ public final class AuthenticationContants {
   public static final String TOKEN_PREFIX = "Bearer ";
   public static final String SECRET = "s3cr3t";
   public static final String SIGN_UP_URL = "/admins";
+  public static final String UNAUTHENTICATED_USER_URL = "/users/**";
 }
