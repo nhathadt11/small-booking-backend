@@ -1,5 +1,6 @@
 package com.nhatha.smallroombookingbackend.config.security;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -22,8 +23,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
   private UserDetailsService userDetailsService;
   private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+  public WebSecurity(@Qualifier(value = "localUserDetailsService") UserDetailsService userDetailsService,
+                     BCryptPasswordEncoder bCryptPasswordEncoder) {
+    this.userDetailsService = userDetailsService;
+    this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+  }
+
   @Override
-  public void configure(org.springframework.security.config.annotation.web.builders.WebSecurity web) throws Exception {
+  public void configure(org.springframework.security.config.annotation.web.builders.WebSecurity web) {
     web.ignoring().antMatchers(
         "/v2/api-docs",
         "/swagger-resources/**",
@@ -31,11 +38,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         "/swagger-ui.html",
         "/webjars/**"
     );
-  }
-
-  public WebSecurity(UserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
-    this.userDetailsService = userDetailsService;
-    this.bCryptPasswordEncoder = bCryptPasswordEncoder;
   }
 
   @Override
