@@ -28,7 +28,8 @@ If you are a Windows user, execute the similar: ```run.bat``` (I haven't tested 
 
 ## Enjoying
 
-### Visit swagger doc at: ```http://localhost:8080/swagger-ui.html#!/```
+### Visit swagger doc at:
+```http://localhost:8080/swagger-ui.html#!/```
 
 ## References:
 
