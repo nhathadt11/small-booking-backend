@@ -16,7 +16,7 @@ This is an back-end of the app named Small Booking App. The app was developed as
 ```mvn clean install```
 
 ### Running
-A note on run.sh (on Mac/Linux): It contains some export statements to needed variables to local evironment including database credentials in order to make connection. These values are only valid to your current session and will be removed after your machine gets rebooted.
+A note on run.sh (on Mac/Linux): It contains some export statements needed to local evironment variables including database credentials in order to make connection. These values are only valid to your current session and will be removed after your machine gets rebooted.
  - Make sure your run.sh have execution permission, or you simply type ```sudo chmod +x run.sh```
  - And then:
 ```./run.sh```
@@ -29,7 +29,7 @@ If you are a Windows user, execute the similar: ```run.bat``` (I haven't tested 
 ## Enjoying
 
 ### Visit swagger doc at:
-```http://localhost:8080/swagger-ui.html#!/```
+```http://localhost:8080/swagger-ui.html#!/``` or live version: https://lit-retreat-83115.herokuapp.com/swagger-ui.html#!/
 
 ## References:
 
