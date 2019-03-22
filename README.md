@@ -2,7 +2,7 @@
 
 ## Getting started
 
-This is an back-end of the app named Small Booking App. The app was developed as a final project of SWD, which is shorts for Software Architect and Design, at school. It provide APIs to a front-end app written in C# (.NET MVC) and a mobile app written in React Native.
+This is an back-end of the app named Small Booking App. The app was developed as a final project of SWD, which shorts for Software Architect and Design, at school. It provide RESTful APIs to a front-end app written in C# (.NET MVC) and a mobile app written in React Native.
 
 - Starter: bootstraped using SPRING INITIALIZR
 - Security: JWT as authentication and authorization
